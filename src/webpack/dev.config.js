@@ -27,6 +27,9 @@ const devConfig = {
     historyApiFallback: true,
     contentBase: './src/public',
     hot: true,
+    proxy: {
+      '/api': 'http://localhost:3001/',
+    },
   },
 }
 
