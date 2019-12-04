@@ -94,7 +94,7 @@ export default () => {
 
               <MenuListItem>
                 <UpLink to="/network-info">
-                  <Icon far icon="wifi" /> Network Info
+                  <Icon fas icon="wifi" /> Network Info
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
@@ -124,7 +124,7 @@ export default () => {
               </MenuListItem>
               <MenuListItem>
                 <UpLink to="/service-workers">
-                  <Icon fas icon="cogs"   /> Service Workers
+                  <Icon fas icon="cogs" /> Service Workers
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
