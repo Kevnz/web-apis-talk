@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react'
-import { Router } from '@reach/router'
+import React from 'react'
+import { Router } from 'ui/core/router'
 import { NavBar, NavBarBrand, Section } from '@brightleaf/elements'
 import { Loading } from 'ui/components/loading'
 import { AuthProvider } from 'ui/core/context/auth'
 import { AppProvider } from 'ui/core/context/app'
 import './app.scss'
-const About = React.lazy(() => import('ui/features/about'))
+
 const Home = React.lazy(() => import('ui/features/home'))
-const Contact = React.lazy(() => import('ui/features/contact'))
+const Ambient = React.lazy(() => import('ui/features/ambient-light-events'))
 
 export default () => {
   return (
     <AuthProvider>
       <AppProvider>
-        <NavBar isPrimary isFixedTop className="is-radiusless">
+        <NavBar isFixedTop className="is-radiusless">
           <NavBarBrand
             src="/favicon-32x32.png"
             href="/"
@@ -26,8 +26,7 @@ export default () => {
           <React.Suspense fallback={<Loading />}>
             <Router>
               <Home path="/" />
-              <About path="/about" />
-              <Contact path="/contact" />
+              <Ambient path="/ambient-light" />
             </Router>
           </React.Suspense>
         </Section>
