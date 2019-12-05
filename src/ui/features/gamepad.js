@@ -16,7 +16,7 @@ const reducer = (state, action) => {
 const useGamePad = (url, data) => {}
 
 export default () => {
-  useGamePad('/log', { action: 'demo' })
+  useGamePad()
   return (
     <Section>
       <Title>Web APIs</Title>
