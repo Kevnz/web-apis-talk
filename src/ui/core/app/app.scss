@@ -103,11 +103,15 @@ footer li:before {
   color: #147efb;
 }
 
-.darklight {
-  color: black !important;
-  background: white !important;
+body.darklight {
+  background: black !important;
+  color: white !important;
+  & .navigation-view,
+  & .navbar {
+    background: #222222cc;
+  }
 }
-.brightlight {
+body.brightlight {
   color: white !important;
   background: black !important;
 }
