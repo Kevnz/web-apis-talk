@@ -14,11 +14,10 @@ const reducer = (state, action) => {
 }
 
 const useBeacon = (url, data) => {
-  window.addEventListener('unload', logData, false)
-
   function logData() {
     navigator.sendBeacon(url, data)
   }
+  window.addEventListener('unload', logData, false)
 }
 
 export default () => {

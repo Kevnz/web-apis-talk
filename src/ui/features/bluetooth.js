@@ -13,6 +13,46 @@ const reducer = (state, action) => {
   }
 }
 
+async function onButtonClick() {
+  const filters = []
+
+  let filterService = document.querySelector('#service').value
+  if (filterService.startsWith('0x')) {
+    filterService = parseInt(filterService)
+  }
+  if (filterService) {
+    filters.push({ services: [filterService] })
+  }
+
+  const filterName = document.querySelector('#name').value
+  if (filterName) {
+    filters.push({ name: filterName })
+  }
+
+  const filterNamePrefix = document.querySelector('#namePrefix').value
+  if (filterNamePrefix) {
+    filters.push({ namePrefix: filterNamePrefix })
+  }
+
+  const options = {}
+  if (document.querySelector('#allDevices').checked) {
+    options.acceptAllDevices = true
+  } else {
+    options.filters = filters
+  }
+
+  try {
+    log('Requesting Bluetooth Device...')
+    log('with ' + JSON.stringify(options))
+    const device = await navigator.bluetooth.requestDevice(options)
+
+    log('> Name:             ' + device.name)
+    log('> Id:               ' + device.id)
+    log('> Connected:        ' + device.gatt.connected)
+  } catch (error) {
+    log('Argh! ' + error)
+  }
+}
 const useBluetooth = (url, data) => {}
 
 export default () => {
