@@ -148,7 +148,7 @@ export default () => {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/animations">
+                <UpLink to="/workers">
                   <Icon fas icon="cog" className="fa-spin" /> Web Workers
                 </UpLink>
               </MenuListItem>
