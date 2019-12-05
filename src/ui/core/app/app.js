@@ -20,8 +20,12 @@ import './app.scss'
 const Home = React.lazy(() => import('ui/features/home'))
 const Ambient = React.lazy(() => import('ui/features/ambient-light-events'))
 const BeaconPage = React.lazy(() => import('ui/features/beacon'))
+const BatteryPage = React.lazy(() => import('ui/features/battery'))
 const BluetoothPage = React.lazy(() => import('ui/features/bluetooth'))
 const FullScreenPage = React.lazy(() => import('ui/features/fullscreen'))
+const PictureInPicturePage = React.lazy(() =>
+  import('ui/features/picture-in-picture')
+)
 const UpLink = props => {
   return (
     <Location>
@@ -62,7 +66,7 @@ export default () => {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/beacon">
+                <UpLink to="/battery">
                   <Icon fas icon="battery-half" /> Battery
                 </UpLink>
               </MenuListItem>
@@ -77,7 +81,7 @@ export default () => {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/full-screen">
+                <UpLink to="/fullscreen">
                   <Icon fas icon="compress" /> Full Screen
                 </UpLink>
               </MenuListItem>
@@ -103,7 +107,7 @@ export default () => {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/?">
+                <UpLink to="/p-in-p">
                   <Icon fas icon="photo-video" /> Picture in Picture
                 </UpLink>
               </MenuListItem>
@@ -206,9 +210,11 @@ export default () => {
             <Router>
               <Home path="/" />
               <Ambient path="/ambient-light" />
+              <BatteryPage path="/battery" />
               <BeaconPage path="/beacon" />
               <BluetoothPage path="/bluetooth" />
               <FullScreenPage path="/fullscreen" />
+              <PictureInPicturePage path="/p-in-p" />
             </Router>
           </React.Suspense>
         </Section>
