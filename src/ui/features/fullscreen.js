@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { Section, Title, SubTitle } from '@brightleaf/elements'
+import { Section, Title, SubTitle, Button } from '@brightleaf/elements'
 import { Highlighter } from 'ui/components/highlighter'
 
 const reducer = (state, action) => {
@@ -13,18 +13,49 @@ const reducer = (state, action) => {
   }
 }
 
-const useFullScreen = (url, data) => {}
+const useFullScreen = () => {
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen()
+      }
+    }
+  }
+  return toggleFullScreen
+}
 
 export default () => {
-  useFullScreen('/log', { action: 'demo' })
+  console.info('full')
+  const toggle = useFullScreen()
   return (
     <Section>
       <Title>Web APIs</Title>
       <SubTitle>Full Screen API</SubTitle>
+      <br />
+      <video controls src="bbb_1080p.mp4"></video>
+      <Button
+        isPrimary
+        onClick={e => {
+          e.preventDefault()
+          toggle()
+        }}
+      >
+        Toggle
+      </Button>
       <Highlighter className="javascript" languages={['javascript']}>
         {`
 
-
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    }
+  }
+}
       `}
       </Highlighter>
     </Section>
