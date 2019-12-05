@@ -17,11 +17,13 @@ const useWebAPI = (
 export default () => {
   useWebAPI('ondevicelight', 'devicelight', event => {
     var body = document.querySelector('body')
-    console.log('it does have ondevicelight')
+    console.log('it does have ondevicelight', event)
     if (event.value < 50) {
+      console.log('darklight')
       body.classList.add('darklight')
       body.classList.remove('brightlight')
     } else {
+      console.log('brightlight')
       body.classList.add('brightlight')
       body.classList.remove('darklight')
     }
