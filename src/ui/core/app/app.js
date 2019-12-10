@@ -26,6 +26,12 @@ const FullScreenPage = React.lazy(() => import('ui/features/fullscreen'))
 const PictureInPicturePage = React.lazy(() =>
   import('ui/features/picture-in-picture')
 )
+const GamePadPage = React.lazy(() => import('ui/features/gamepad'))
+const NetworkPage = React.lazy(() => import('ui/features/network-info'))
+const PageVisibilityPage = React.lazy(() =>
+  import('ui/features/page-visibility')
+)
+const ProximityPage = React.lazy(() => import('ui/features/proximity'))
 const UpLink = props => {
   return (
     <Location>
@@ -112,7 +118,7 @@ export default () => {
                 </UpLink>
               </MenuListItem>
               <MenuListItem>
-                <UpLink to="/?">
+                <UpLink to="/proximity">
                   <Icon fas icon="map-marked-alt" /> Proximity
                 </UpLink>
               </MenuListItem>
@@ -215,6 +221,10 @@ export default () => {
               <BluetoothPage path="/bluetooth" />
               <FullScreenPage path="/fullscreen" />
               <PictureInPicturePage path="/p-in-p" />
+              <GamePadPage path="/gamepad" />
+              <NetworkPage path="/network-info" />
+              <PageVisibilityPage path="/page-visibility" />
+              <ProximityPage path="/proximity" />
             </Router>
           </React.Suspense>
         </Section>

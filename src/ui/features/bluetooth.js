@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { Section, Title, SubTitle } from '@brightleaf/elements'
+import { Section, Title, SubTitle, Icon } from '@brightleaf/elements'
 import { Highlighter } from 'ui/components/highlighter'
 
 const reducer = (state, action) => {
@@ -61,13 +61,16 @@ export default () => {
     <Section>
       <Title>Web APIs</Title>
       <SubTitle>Bluetooth API</SubTitle>
+      <a
+        href="https://googlechrome.github.io/samples/web-bluetooth/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Samples <Icon fas icon="external-link-alt" />
+      </a>
       <Highlighter className="javascript" languages={['javascript']}>
         {`
-window.addEventListener("unload", logData, false);
 
-function logData() {
-  navigator.sendBeacon("/log", analyticsData);
-}
       `}
       </Highlighter>
     </Section>
